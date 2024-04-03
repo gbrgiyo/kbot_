@@ -11,7 +11,7 @@ test:
 
 build:
 	@echo "Building for $(TARGET)"
-	CGO_ENABLE=0 GOOS=$(shell uname | tr '[:upper:]' '[:lower:]') GOARCH=$(TARGET) go build -v -o kbot-$(TARGET) -ldflags "-X 'github.com/wefgg/kbot/cmd.appVersion=${VERSION}'"
+	CGO_ENABLE=0 GOOS=$(shell uname | tr '[:upper:]' '[:lower:]') GOARCH=$(TARGET) go build -v -o kbot-$(TARGET) -ldflags "-X 'github.com/gbrgiyo/kbot/cmd.appVersion=${VERSION}'"
 
 clean:
 	rm -rf kbot-*
