@@ -26,7 +26,8 @@ get:
 	go get
 
 build: format get
-	CGO_ENABLED=0 GOOS=${TARGETOS} GOARCH=${TARGETARCH} go build -v -o kbot -ldflags "-X="github.com/gbrgiyo/kbot/cmd.appVersion=${VERSION}
+	CGO_ENABLED=0 GOOS=${TARGETOS} GOARCH=${TARGETARCH} go build -v -o kbotll
+	 -ldflags "-X="github.com/gbrgiyo/kbot_/cmd.appVersion=${VERSION}
 
 image:
 	docker build . -t ${REGISTRY}/${APP}:${VERSION}-${TARGETOS}-${TARGETARCH} --build-arg=TARGETOS=${TARGETOS} --build-arg=TARGETARCH=${TARGETARCH}
@@ -36,4 +37,3 @@ push:
 
 clean:
 	rm -rf kbot
-	docker rmi -f ${REGISTRY}/${APP}:${VERSION}-${TARGETOS}-${TARGETARCH}
