@@ -1,5 +1,5 @@
 APP=$(shell basename $(shell git remote get-url origin))
-REGISTRY=https://hub.docker.com/u/gbrgiyo
+REGISTRY=gbrgiyo
 VERSION=$(shell git describe --tags --abbrev=0)-$(shell git rev-parse --short HEAD)
 TARGETOS=linux# darwin windows
 TARGETARCH=amd64# amd64 arm64
